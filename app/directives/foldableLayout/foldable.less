@@ -1,0 +1,245 @@
+@import (reference) '../../style/theme-blue.less';
+.foldable-box {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: solid 1px @border-color;
+    &.fold-left {
+        .foldable-ct {
+            flex-direction: row;
+            > div {
+                &:first-child {
+                    -webkit-transition: width .5s;
+                       -moz-transition: width .5s;
+                         -o-transition: width .5s;
+                            transition: width .5s;
+                    border-right: solid 1px @border-color;
+                    .foldable-tag-area {
+                        top: 5px;
+                        right: 2px;
+                    }
+                }
+                &:nth-child(2) {
+                    flex: 1;
+                }
+            }
+        }
+        &.status-open {
+            .foldable-ct {
+                > div {
+                    &:first-child {
+                        width: 150px;
+                    }
+                }
+            }
+        }
+        &.status-close {
+            .foldable-ct {
+                > div {
+                    &:first-child {
+                        width: 20px;
+                        .foldable-tag-area {
+                            -webkit-transform: rotate(180deg);
+                               -moz-transform: rotate(180deg);
+                                -ms-transform: rotate(180deg);
+                                 -o-transform: rotate(180deg);
+                                    transform: rotate(180deg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.fold-right {
+        .foldable-ct {
+            flex-direction: row;
+            > div {
+                &:first-child {
+                    flex: 1;
+                }
+                &:nth-child(2) {
+                    -webkit-transition: width .5s;
+                       -moz-transition: width .5s;
+                         -o-transition: width .5s;
+                            transition: width .5s;
+                    border-left: solid 1px @border-color;
+                    .foldable-tag-area {
+                        top: 5px;
+                        left: 2px;
+                    }
+                }
+            }
+        }
+        &.status-open {
+            .foldable-ct {
+                > div {
+                    &:nth-child(2) {
+                        width: 150px;
+                        .foldable-tag-area {
+                            -webkit-transform: rotate(180deg);
+                               -moz-transform: rotate(180deg);
+                                -ms-transform: rotate(180deg);
+                                 -o-transform: rotate(180deg);
+                                    transform: rotate(180deg);
+                        }
+                    }
+                }
+            }
+        }
+        &.status-close {
+            .foldable-ct {
+                > div {
+                    &:nth-child(2){
+                        width: 20px;
+                        .foldable-tag-area {
+                            -webkit-transform: rotate(0deg);
+                               -moz-transform: rotate(0deg);
+                                -ms-transform: rotate(0deg);
+                                 -o-transform: rotate(0deg);
+                                    transform: rotate(0deg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.fold-up {
+        .foldable-ct {
+            flex-direction: column;
+            > div {
+                &:first-child {
+                    -webkit-transition: height .5s;
+                       -moz-transition: height .5s;
+                         -o-transition: height .5s;
+                            transition: height .5s;
+                    border-bottom: solid 1px @border-color;
+                    .foldable-tag-area {
+                        bottom: 2px;
+                        right: 5px;
+                    }
+                }
+                &:nth-child(2) {
+                    flex: 1;
+                }
+            }
+        }
+        &.status-open {
+            .foldable-ct {
+                > div {
+                    &:first-child {
+                        height: 150px;
+                        .foldable-tag-area {
+                            -webkit-transform: rotate(90deg);
+                               -moz-transform: rotate(90deg);
+                                -ms-transform: rotate(90deg);
+                                 -o-transform: rotate(90deg);
+                                    transform: rotate(90deg);
+                        }
+                    }
+                }
+            }
+        }
+        &.status-close {
+            .foldable-ct {
+                > div {
+                    &:first-child {
+                        height: 20px;
+                        .foldable-tag-area {
+                            -webkit-transform: rotate(-90deg);
+                               -moz-transform: rotate(-90deg);
+                                -ms-transform: rotate(-90deg);
+                                 -o-transform: rotate(-90deg);
+                                    transform: rotate(-90deg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.fold-down {
+        .foldable-ct {
+            flex-direction: column;
+            > div {
+                &:first-child {
+                    flex: 1;
+                }
+                &:nth-child(2) {
+                    -webkit-transition: height .5s;
+                       -moz-transition: height .5s;
+                         -o-transition: height .5s;
+                            transition: height .5s;
+                    border-top: solid 1px @border-color;
+                    .foldable-tag-area {
+                        top: 2px;
+                        right: 5px;
+                    }
+                }
+            }
+        }
+        &.status-open {
+            .foldable-ct {
+                > div {
+                    &:nth-child(2) {
+                        height: 150px;
+                        .foldable-tag-area {
+                            -webkit-transform: rotate(-90deg);
+                               -moz-transform: rotate(-90deg);
+                                -ms-transform: rotate(-90deg);
+                                 -o-transform: rotate(-90deg);
+                                    transform: rotate(-90deg);
+                        }
+                    }
+                }
+            }
+        }
+        &.status-close {
+            .foldable-ct {
+                > div {
+                    &:nth-child(2){
+                        height: 20px;
+                        .foldable-tag-area {
+                            -webkit-transform: rotate(90deg);
+                               -moz-transform: rotate(90deg);
+                                -ms-transform: rotate(90deg);
+                                 -o-transform: rotate(90deg);
+                                    transform: rotate(90deg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .foldable-ct {
+        display: -webkit-flex;
+        display: flex;
+        flex: 1;
+        .foldable-tag-area {
+            -webkit-transition: all 1s;
+               -moz-transition: all 1s;
+                 -o-transition: all 1s;
+                    transition: all 1s;
+            position: absolute;
+            display: inline-block;
+            height: 14px;
+            width: 14px;
+            z-index: 10px;
+            i {
+                display: inline-block;
+                height: 14px;
+                width: 14px;
+                svg {
+                    vertical-align: top;
+                }
+            }
+        }
+        > div {
+            position: relative;
+            box-sizing: border-box;
+            overflow: hidden;
+            padding: 5px;
+        }
+    }
+}

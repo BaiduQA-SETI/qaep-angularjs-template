@@ -1,0 +1,32 @@
+<footer class="footer" ng-if="(curRouterName=='shell.index' || curRouterName=='shell.ecology') && !shell.isAdmin">
+    <div>
+        <span></span>
+        <span>
+            邮箱:&nbsp;&nbsp;<a href="mailto:rmtc@baidu.com" title="邮箱">xxx@baidu.com</a>
+        </span>
+    </div>
+    <div>
+        <ul>
+            <li><a href="http://haichuan.baidu.com" target="_blank">数据质量-海川</a></li>
+            <li><a href="http://rmtc.baidu.com" target="_blank">移动测试-RMTC</a></li>
+            <li><a href="http://titans.baidu.com" target="_blank">CI工具链-泰坦</a></li>
+            <li><a href="http://va.baidu.com" target="_blank">产品评测-VA</a></li>
+            <li><a href="http://qapi.baidu.com" target="_blank">质量开发中心</a></li>
+        </ul>
+    </div>
+    <div>
+        <span>Copyright©2018</span>
+        <span>SC-QA-EP</span>
+        <span><a href="http://qaep.baidu.com" target="_blank">更多产品请点击</a></span>
+    </div>
+</footer>
+<footer class="other-footer" ng-if="curRouterName!=='shell.index'">
+    <div>
+        <span></span>
+        <span>
+            邮箱: <a href="mailto:rmtc@baidu.com" title="邮箱">xxx@baidu.com</a>
+        </span>
+        <span>Copyright©2018</span>
+        <span>SC-QA-EP</span>
+    </div>
+</footer>

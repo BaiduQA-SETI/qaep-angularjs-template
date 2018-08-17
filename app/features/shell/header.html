@@ -1,0 +1,82 @@
+<header class="header navbar navbar-fixed-top header-top" ng-class="{'one': 'header-bg-one', 'two': 'header-bg-two', 'three': 'header-bg-three', 'four': 'header-bg-four', 'five': 'header-bg-five', 'other': 'header-bg-other'}[shell.headerBgClass]"
+    name="{{shell.headerBgClass}}">
+    <div>
+        <div ng-if="!shell.isAdmin" class="header-ct">
+            <a class="logo" href="#/index">
+            </a>
+            <ul class="menu-list">
+                <li name="{{item.id}}" ng-repeat="item in shell.headerItems">
+                    <a class="menu" ng-class="{true: 'active'}[shell.curMenu==item.id]" ui-sref="shell.{{item.id}}">{{item.name}}</a>
+                </li>
+            </ul>
+            <ul class="user-help">
+                <li class="user">
+                    <a>
+                        {{userInfo.username}}
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <section class="pwd">
+                        <ul class="pwd-list">
+                            <i class="fa fa-sort-up fa-lg"></i>
+                            <li>
+                                <a ng-click="shell.goWorkbench()">控制台</a>
+                            </li>
+                            <li ng-if="userInfo.isAdmin">
+                                <a ui-sref="shell.admin.order.orderList">管理后台</a>
+                            </li>
+                        </ul>
+                    </section>
+                </li>
+                <li class="split"></li>
+                <li class="help">
+                    <a href="http://wiki.baidu.com/pages/viewpage.action?pageId=213543479" target="_blank">
+                        帮助
+                    </a>
+                </li>
+                <li class="split"></li>
+                <li class="for-git">
+                    <span title="敬请期待"></span>
+                </li>
+            </ul>
+        </div>
+
+        <div ng-if="shell.isAdmin" class="header-ct header-admin">
+            <div class="logo-wrap">
+                <a class="logo" href="#/index">
+                </a>
+                <span class="line">|</span>
+                <span class="logo-text">管理系统{{admin}}</span>
+            </div>
+            <ul class="menu-list">
+                <li ng-repeat="item in shell.adminHeaderItems">
+                    <a ui-sref="shell.admin.{{item.id}}.{{item.default}}" ng-class="{true: 'active'}[shell.curMenu==item.id]"  class="menu">{{item.name}}</a>
+                </li>
+            </ul>
+            <ul class="user-help">
+                <li class="user">
+                    <a>{{userInfo.username}}
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <section class="pwd">
+                        <ul class="pwd-list">
+                            <i class="fa fa-sort-up fa-lg"></i>
+                            <li>
+                                <a>控制台</a>
+                            </li>
+                        </ul>
+                    </section>
+                </li>
+                <li class="split"></li>
+                <li class="help">
+                    <a href="http://www.baidu.com" target="_blank">
+                        帮助
+                    </a>
+                </li>
+                <li class="split"></li>
+                <li class="for-git">
+                    <span title="敬请期待"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>

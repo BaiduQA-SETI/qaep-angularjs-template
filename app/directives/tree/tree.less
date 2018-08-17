@@ -1,0 +1,194 @@
+@import "../../style/theme-blue.less";
+
+.tree-view {
+    padding: 10px;
+    /*border: 1px solid #ddd;*/
+}
+
+.tree-view > ul {
+    margin: 0;
+}
+
+.tree-view ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tree-view .node-item {
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.tree-view .node-switch {
+    position: relative;
+    width: 13px;
+    height: 13px;
+    border: 1px solid #ddd;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.node-item.expanded .node-switch:after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.5) ;
+    width: 16px;
+    height: 0;
+    border-top: 2px solid #ddd;
+}
+
+.node-item.collapsed .node-switch:after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.5);
+    width: 16px;
+    height: 2px;
+    background-color: #ddd;
+}
+
+.node-item.collapsed .node-switch:before {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.5);
+    width: 2px;
+    height: 16px;
+    background-color: #ddd;
+}
+
+.node-item > ul {
+    overflow: hidden;
+    margin: 0;
+    padding-left: 18px;
+}
+
+.node-item > .node-info .node-name {
+    padding: 3px;
+}
+.node-item.selected > .node-info .node-name {
+    background: @primary-color;
+    color: #fff;
+    transition: all .25s linear;
+}
+
+.node-item:not(.selected) > .node-info .node-name:hover {
+    /*background: #0f88eb;*/
+    color: @primary-color;
+}
+
+.node-leaf .node-switch {
+    display: none;
+}
+
+.animation-show {
+    transition: all linear 1s;
+    opacity: 1;
+}
+
+.animate-show.ng-hide-add.ng-hide-add-active,
+.animate-show.ng-hide-remove.ng-hide-remove-active {
+  transition: all linear 0.5s;
+}
+
+.animation-show.ng-hide {
+    height: 0;
+    opacity: 0;
+    display: block !important;
+}
+
+.node-item .node-info {
+    position: relative;
+    line-height: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.node-item .node-info .node-actions i {
+    display: none;
+}
+
+.node-item > .node-info:hover .node-actions i {
+    display: inline-block;
+}
+
+.node-item input[type="text"] {
+    border-radius: 0;
+    width: auto;
+    box-sizing: border-box;
+}
+
+.custom-checkbox {
+    border: 1px solid #ddd;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    position: relative;
+}
+
+.custom-checkbox.checked:after,
+.custom-checkbox.checked-part:after {
+    position: absolute;
+    content: '';
+    left: 2px;
+    top: -1px;
+    width: 4px;
+    height: 8px;
+    border-right: 2px solid #0f88eb;
+    border-bottom: 2px solid #0f88eb;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.custom-checkbox.checked-part {
+    background: #ddd;
+}
+
+.node-info.insert-in {
+    background: #0f88eb;
+}
+
+.node-info.insert-before {
+    border-top: 1px solid #0f88eb;
+}
+
+.node-info.insert-after {
+    border-bottom: 1px solid #0f88eb;
+}
+
+.insert-arrow {
+    position: absolute;
+    content: '';
+    left: -10px;
+    top: 0;
+    border-top: 2px solid #0f88eb;
+    border-right: 2px solid #0f88eb;
+    width: 6px;
+    height: 6px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    display: none;
+}
+
+.insert-before .insert-arrow {
+    top: 0;
+    display: block;
+}
+
+.insert-in .insert-arrow {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    display: block;
+}
+
+.insert-after .insert-arrow {
+    top: auto;
+    bottom: 0;
+    display: block;
+}
+

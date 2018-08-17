@@ -1,0 +1,16 @@
+<div class="modal-panel-box" ng-class="{true: 'fade-in', false: 'fade-out', 'init': 'init-panel'}[myData.show]">
+    <div class="modal-panel-back"></div>
+    <div class="modal-panel">
+        <div class="header">
+            <span class="modal-title">{{myData.title}}</span>
+            <span class="close-tag">
+                <i class="fa fa-close fa-lg" ng-click="triggerBtn('closeTag')"></i>
+            </span>
+        </div>
+        <div class="center" ng-transclude></div>
+        <div class="footer" ng-if="myData.button!=='private'">
+            <button type="button" class="cm-btn" ng-click="triggerBtn('close')" ng-if="myData.button==undefined||myData.button.length==0">关闭</button>
+            <button type="button" class="cm-btn" ng-class="{true: 'cm-hl-btn'}[btn.highLight]" ng-click="triggerBtn(btn)" ng-repeat="btn in myData.button" ng-if="myData.button.length>0">{{btn.name}}</button>
+        </div>
+    </div>
+</div>

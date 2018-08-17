@@ -1,0 +1,38 @@
+@import (reference) '../../style/theme-blue.less';
+
+@upload-box-height: @height;
+.upload-box {
+	.file-elem {
+		display: none;
+	}
+	.file-path {
+		display: inline-block;
+		vertical-align: top;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		min-width: 100px;
+		max-width: 400px;
+		margin-right: 5px;
+		padding: 0 @padding-value;
+		height: @upload-box-height;
+		line-height: @upload-box-height;
+		border-radius: @radius;
+		border: @border-type @border-width @border-color;
+		background-color: @bg-color;
+		.init {}
+		.error {
+			color: @font-alarm-color;
+		}
+		.correct {
+			color: @font-active-color;
+		}
+	}
+	.cm-btn {
+		vertical-align: top;
+	}
+	.after-upload-note {
+		height: @upload-box-height;
+		line-height: @upload-box-height;
+	}
+}

@@ -1,0 +1,12 @@
+<section class="upload-box">
+    <input type="file" class="file-elem" ng-model="uploadInfo.filePath">
+    <span class="file-path" title="{{uploadInfo.filePath}}">
+        <font class="init" ng-show="uploadInfo.status=='init'">{{uploadInfo.filePath}}</font>
+        <font class="error" ng-show="uploadInfo.status=='error'">{{uploadInfo.filePath}}</font>
+        <font class="correct" ng-show="uploadInfo.status=='correct'">{{uploadInfo.filePath}}</font>
+    </span>
+    <button type="button" class="cm-btn browser-btn" ng-class="{undefined: 'cm-hl-btn', false: 'cm-hl-btn', true: 'cm-disable-btn'}[upload.btnAble || upload.browserBtnAble]" ng-disabled="upload.btnAble || upload.browserBtnAble" ng-click="browserFile($event)">浏览</button>
+    <button type="button" class="cm-btn upload-btn" ng-class="{undefined: 'cm-disable-btn', true: 'cm-hl-btn', false: 'cm-disable-btn'}[uploadInfo.filePath.split('.').length>1]" ng-disabled="uploadInfo.filePath.split('.').length<=1" ng-click="uploadFile($event)">上传</button>
+    <span class="after-upload-note" ng-show="upload.note!==''&&upload.note!==undefined">{{upload.note}}</span>
+    <!-- ng-disabled="upload.btnAble || upload.uploadBtnAble" -->
+</section>

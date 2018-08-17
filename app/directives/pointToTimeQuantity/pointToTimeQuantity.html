@@ -1,0 +1,28 @@
+<section class="point-to-time-box">
+    <div>
+        <div ng-repeat="point in pointData" ng-style="getStyle(point, startTimeObj, endTimeObj)" >
+            <div title="点击查看详情" ng-click="setPointDetailStatus($index, pointData)"></div>
+            <div ng-class="{true: 'no-show'}[point.name=='']">
+                <div>
+                    {{point.name}}
+                </div>
+                <i class="fa fa-lg fa-caret-down"></i>
+            </div>
+            <div ng-if="point.detailStatus=='open'">
+                <i class="fa fa-lg fa-caret-up"></i>
+            </div>
+        </div>
+    </div>
+    <div ng-if="pointDetailData.list.length!==0">
+        <div>
+            <div ng-if="curPointDetail!==''">问题详情</div>
+            <div ng-if="curPointDetail!==''">{{curPointDetail}}</div>
+        </div>
+        <div>
+            <div ng-repeat="img in pointDetailData.list">
+                <img ng-src="{{img.url}}" ng-class="{'big': 'big-img'}[img.status]" title="{{img.status=='small'?'点击查看大图':'点击缩小图片'}}" ng-click="setImg(img)">
+                <div>{{img.dateTime}}</div>
+            </div>
+        </div>
+    </div>
+</section>

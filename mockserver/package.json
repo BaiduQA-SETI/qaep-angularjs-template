@@ -1,0 +1,17 @@
+{
+  "name": "AngularDemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4"
+  },
+  "dependencies": {}
+}

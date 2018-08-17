@@ -1,0 +1,36 @@
+<nav ng-show="!!pageInfo.total" class="pagination-box">
+    <ul class="pagination">
+        <li class="" ng-click="onSelectPage(1)">
+            <a href="javascript:void(0);" aria-label="First">
+                <span aria-hidden="true">首页</span>
+            </a>
+        </li>
+        <li class="" ng-click="onPrePage(pageInfo.currentPage - 1)">
+            <a href="javascript:void(0);" aria-label="Previous">
+              <!-- <span aria-hidden="true">&laquo;</span> -->&laquo;
+            </a>
+        </li>
+        <li ng-repeat="page in getPages(pageInfo)" ng-class="{active: pageInfo.currentPage === page}" ng-click="onSelectPage(page)">
+            <a href="javascript:void(0)">{{page}}</a>
+        </li>
+        <li class="" ng-click="onNextPage(pageInfo.currentPage + 1)">
+            <a href="javascript:void(0);" aria-label="Next">
+                <!-- <span aria-hidden="true">&raquo;</span> -->&raquo;
+            </a>
+        </li>
+        <li class="" ng-click="onSelectPage(getTotalPageCount(pageInfo))">
+            <a href="javascript:void(0);" aria-label="Last"><span aria-hidden="true">末页</span></a>
+        </li>
+        <!-- <li class="page-input" ng-click="goTo(getTotalPageCount(pageInfo))">
+        <span aria-hidden="true">
+          页码:
+          <input type="number"
+            min="1" max="{{getTotalPageCount(pageInfo)}}"
+            ng-model="pageInfo.currentPage"
+            ng-change="changePage(pageInfo.currentPage)" />
+        </span>
+        </li> -->
+    </ul>
+    <span class="page-summary">共{{getTotalPageCount(pageInfo)}}页 {{pageInfo.total}}条记录</span>
+    <!-- <span class="page-summary">共{{pageInfo.total}}条记录 {{pageInfo.currentPage}} / {{getTotalPageCount(pageInfo)}}</span> -->
+</nav>

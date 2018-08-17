@@ -1,0 +1,18 @@
+<div class="carousel-box">
+    <ul class="carousel-imgs">
+        <li ng-repeat="img in myCarouselData.list" id="{{img.id}}" ng-class="getCarouselItemClass($index)">
+            <img ng-src="{{img.src}}" />
+            <div class="btn-rect" ng-repeat="btn in img.btnInfo" ng-init="iconStyle=({width: btn.width, height: btn.height, top: btn.top, left: btn.left})" ng-style="iconStyle" ng-click="goBtnClick(btn)">
+                <span ng-if="btn.text!==undefined">{{btn.text}}</span>
+                <i class="{{btn.icon}}"></i>
+            </div>
+        </li>
+    </ul>
+    <div class="carousel-lr-tags j-carousel-lr-tags" ng-if="myCarouselData.leftRigthTag">
+        <i class="fa fa-angle-left fa-5x tag left-tag" ng-click="switchCarousel('lr', 'left')"></i>
+        <i class="fa fa-angle-right fa-5x tag right-tag" ng-click="switchCarousel('lr', 'right')"></i>
+    </div>
+    <div class="carousel-index-tags">
+        <span class="tag" ng-repeat="img in myCarouselData.list" id="{{img.id}}" ng-class="{true: 'active'}[initConf.activeId==($index+1)]" ng-click="switchCarousel('index', $index)"></span>
+    </div>
+</div>

@@ -1,0 +1,355 @@
+@import (reference) '../../style/theme-blue.less';
+
+.modal-panel-box {
+    box-sizing: border-box;
+    position: fixed;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100%;
+    height: 100%;
+    &.init-panel {
+        display: none;
+    }
+    &.fade-in {
+        @keyframes panelbackfadein {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: .5;
+            }
+        }
+        @-moz-keyframes panelbackfadein {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: .5;
+            }
+        }
+        @-webkit-keyframes panelbackfadein {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: .5;
+            }
+        }
+        @-o-keyframes panelbackfadein {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: .5;
+            }
+        }
+        .modal-panel-back {
+            position: absolute;
+            flex: 1;
+            display: -webkit-flex;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            opacity: .5;
+            background-color: #000;
+            -webkit-animation: panelbackfadein .5s;
+               -moz-animation: panelbackfadein .5s;
+                 -o-animation: panelbackfadein .5s;
+                    animation: panelbackfadein .5s;
+        }
+        @keyframes panelfadein {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @-moz-keyframes panelfadein {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @-webkit-keyframes panelfadein {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @-o-keyframes panelfadein {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .modal-panel {
+            display: -webkit-flex;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            position: absolute;
+            box-sizing: border-box;
+            background-color: #FFF;
+            border-radius: 5px;
+            height: 80%;
+            width: 80%;
+            min-width: 800px;
+            opacity: 1 !important;
+            z-index: 1050;
+            -webkit-animation: panelfadein .5s ease-in-out;
+               -moz-animation: panelfadein .5s ease-in-out;
+                 -o-animation: panelfadein .5s ease-in-out;
+                    animation: panelfadein .5s ease-in-out;
+            .header {
+                box-sizing: border-box;
+                padding: 10px 20px;
+                border-bottom: @border-type @border-width @border-color;
+                .modal-title {
+                    font-weight: 700;
+                }
+                .close-tag {
+                    float: right;
+                    cursor: pointer;
+                    opacity: .8;
+                    color: @font-active-color;
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+            .center {
+                display: -webkit-flex;
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                box-sizing: border-box;
+                padding: 5px 20px;
+            }
+            .footer {
+                box-sizing: border-box;
+                min-height: 41px;
+                padding: 5px 20px;
+                border-top: @border-type @border-width @border-color;
+                .cm-btn {
+                    float: right;
+                    margin-left: 15px;
+                }
+            }
+        }
+    }
+    @keyframes panelboxfadeout {
+        from {
+            width: 100%;
+            height: 100%;
+        }
+        to {
+            width: 0;
+            height: 0;
+        }
+    }
+    @-moz-keyframes panelboxfadeout {
+        from {
+            width: 100%;
+            height: 100%;
+        }
+        to {
+            width: 0;
+            height: 0;
+        }
+    }
+    @-webkit-keyframes panelboxfadeout {
+        from {
+            width: 100%;
+            height: 100%;
+        }
+        to {
+            width: 0;
+            height: 0;
+        }
+    }
+    @-o-keyframes panelboxfadeout {
+        from {
+            width: 100%;
+            height: 100%;
+        }
+        to {
+            width: 0;
+            height: 0;
+        }
+    }
+    &.fade-out {
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        -webkit-animation: panelboxfadeout .5s;
+           -moz-animation: panelboxfadeout .5s;
+             -o-animation: panelboxfadeout .5s;
+                animation: panelboxfadeout .5s;
+        .modal-panel-back {
+            position: absolute;
+            flex: 1;
+            display: -webkit-flex;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            background-color: #000;
+        }
+        @keyframes panelfadeout {
+            from {
+                opacity: 1;
+                width: 80%;
+                height: 80%;
+                -webkit-transform: rotate(0deg);
+                   -moz-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                     -o-transform: rotate(0deg);
+                        transform: rotate(0deg);
+            }
+            to {
+                opacity: 0;
+                width: 0;
+                height: 0;
+                -webkit-transform: rotate(-180deg);
+                   -moz-transform: rotate(-180deg);
+                    -ms-transform: rotate(-180deg);
+                     -o-transform: rotate(-180deg);
+                        transform: rotate(-180deg);
+            }
+        }
+
+        @-moz-keyframes panelfadeout {
+            from {
+                opacity: 1;
+                width: 80%;
+                height: 80%;
+                -webkit-transform: rotate(0deg);
+                   -moz-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                     -o-transform: rotate(0deg);
+                        transform: rotate(0deg);
+            }
+            to {
+                opacity: 0;
+                width: 0;
+                height: 0;
+                -webkit-transform: rotate(-180deg);
+                   -moz-transform: rotate(-180deg);
+                    -ms-transform: rotate(-180deg);
+                     -o-transform: rotate(-180deg);
+                        transform: rotate(-180deg);
+            }
+        }
+
+        @-webkit-keyframes panelfadeout {
+            from {
+                opacity: 1;
+                width: 80%;
+                height: 80%;
+                -webkit-transform: rotate(0deg);
+                   -moz-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                     -o-transform: rotate(0deg);
+                        transform: rotate(0deg);
+            }
+            to {
+                opacity: 0;
+                width: 0;
+                height: 0;
+                -webkit-transform: rotate(-180deg);
+                   -moz-transform: rotate(-180deg);
+                    -ms-transform: rotate(-180deg);
+                     -o-transform: rotate(-180deg);
+                        transform: rotate(-180deg);
+            }
+        }
+
+        @-o-keyframes panelfadeout {
+            from {
+                opacity: 1;
+                width: 80%;
+                height: 80%;
+                -webkit-transform: rotate(0deg);
+                   -moz-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                     -o-transform: rotate(0deg);
+                        transform: rotate(0deg);
+            }
+            to {
+                opacity: 0;
+                width: 0;
+                height: 0;
+                -webkit-transform: rotate(-180deg);
+                   -moz-transform: rotate(-180deg);
+                    -ms-transform: rotate(-180deg);
+                     -o-transform: rotate(-180deg);
+                        transform: rotate(-180deg);
+            }
+        }
+        .modal-panel {
+            display: -webkit-flex;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            position: absolute;
+            box-sizing: border-box;
+            background-color: #FFF;
+            border-radius: 5px;
+            height: 0;
+            width: 0;
+            opacity: 1 !important;
+            z-index: 1050;
+            -webkit-animation: panelfadeout .5s ease-in-out;
+               -moz-animation: panelfadeout .5s ease-in-out;
+                 -o-animation: panelfadeout .5s ease-in-out;
+                    animation: panelfadeout .5s ease-in-out;
+            .header {
+                box-sizing: border-box;
+                padding: 10px 20px;
+                border-bottom: @border-type @border-width @border-color;
+                .close-tag {
+                    float: right;
+                    cursor: pointer;
+                    opacity: .8;
+                    color: @font-active-color;
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+            .center {
+                display: -webkit-flex;
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                box-sizing: border-box;
+                padding: 5px 20px;
+            }
+            .footer {
+                box-sizing: border-box;
+                min-height: 41px;
+                padding: 5px 20px;
+                border-top: @border-type @border-width @border-color;
+                .cm-btn {
+                    float: right;
+                    margin-left: 15px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "status": 200,
+    "message": "ok",
+    "success": true,
+    "data": {
+        "level": 0,
+        "username": "zhangzengwei",
+        "pwd": "f196739ff293fb2eebdc529e2ea4fe87"
+    }
+}

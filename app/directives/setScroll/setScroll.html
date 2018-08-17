@@ -1,0 +1,12 @@
+<div class="scroll-bar" ng-show="scrollInfo.show">
+	<div class="scroll-up">
+		<i class="fa fa-lg fa-caret-up"></i>
+	</div>
+	<div class="scroll-track">
+		<div class="scroll-btn" ng-mousedown="mousedownBtn($event)"></div>
+	</div>
+	<div class="scroll-down">
+		<i class="fa fa-lg fa-caret-down"></i>
+	</div>
+</div>
+<div class="inner-ct" ng-class="{true: 'scroll-show'}[scrollInfo.show]" ng-transclude></div>

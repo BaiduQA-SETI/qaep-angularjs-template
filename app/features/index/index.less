@@ -1,0 +1,42 @@
+@import (reference) "../../style/theme-blue.less";
+
+.index-view {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-top: -60px;
+    .index-ct {
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        .part1 {
+            position: relative;
+            width: 100%;
+            // height: 623px;
+            .carousel-bg {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                z-index: 0;
+                background-color: @primary-color;
+            }
+            .carousel-ct {
+                width: 80%;
+                min-width: 1200px;
+                z-index: 1;
+                margin: 0 auto;
+                .carousel-imgs {
+                    li > img {
+                        margin-top: -80px;
+                    }
+                }
+                .carousel-index-tags {
+                    margin-top: -200px;
+                    bottom: auto !important;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+<div class="select-box" ng-class="getBoxClass(selectInfo.filter, selectInfo.pos)">
+    <div class="select-focus" ng-click="openSelectList($event)">
+        <div class="select-input">
+            {{getShowText(myData.list)}}
+        </div>
+        <i class="fa fa-lg fa-angle-down"></i>
+        <input type="hidden" ng-model="myModel" name="{{myData.name}}" ng-required="myData.required">
+    </div>
+    <div class="select-filter" ng-if="selectInfo.filter&&selectInfo.show" ng-click="selectFilter($event)">
+        <input type="text" class="filter" placeholder="在此输入筛选" ng-model="selectInfo.filterValue">
+    </div>
+    <ul class="select-list" ng-show="selectInfo.show" list-pos-set="{{setListPos(selectInfo.show, selectInfo.filter, selectInfo.filterValue)}}">
+        <li value="{{option[selectInfo.listMap.value]}}" title="{{isShowTitle(myData.showTitle, option)}}" ng-class="{true: 'active'}[myModel==option[selectInfo.listMap.value]]" ng-repeat="option in myData.list | filter:selectInfo.filterValue" ng-click="selectOneItem($event, option)">{{option[selectInfo.listMap.key]}}</li>
+    </ul>
+</div>
+

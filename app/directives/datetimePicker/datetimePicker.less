@@ -1,0 +1,42 @@
+@import (reference) '../../style/theme-blue.less';
+
+@datetime-box-height: @height;
+.datetime-box {
+    position: relative;
+    .fa {
+        position: absolute;
+        left: 100%;
+        margin-left: -18px;
+        top: 13px;
+        opacity: .8;
+        color:  @primary-color5;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    .invalid-datetime {
+        color: @font-warn-color;
+    }
+    .invalid-note {
+        position: absolute;
+        left: 0;
+        z-index: 10;
+        width: 100%;
+        min-width: 160px;
+        height: 15px;
+        line-height: 15px;
+        top: 32px;
+        .note-bg {
+            position: absolute;
+            background-color: @font-warn-color;
+            width: 100%;
+            opacity: 1;
+        }
+        .note {
+            position: absolute;
+            font-size: 12px;
+            padding: 0 5px;
+            color: @font-alarm-color;
+        }
+    }
+}

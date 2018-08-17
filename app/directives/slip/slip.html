@@ -1,0 +1,29 @@
+<div class="slip-box">
+    <!-- <div class="left-btn-area" ng-class="{false: 'unenable-btn'}[config.startIndex>1]">
+        <div class="btn-bg"></div>
+        <div class="btn-area">
+            <i class="fa fa-angle-left fa-3x" ng-click="slipLeftRight('left')"></i>
+        </div>
+    </div> -->
+    <div class="content-area j-content-area">
+        <div class="slip-item single-slip-item j-slip-item" ng-if="config.row==1" ng-repeat="item in config.list" ng-click="slipItemClick(item)" ng-mouseover="slipItemHover(item)" ng-mouseleave="slipItemOut(item)">
+            <div ng-if="config.type=='text'||config.type=='text-img'">
+                <div class="note" ng-if="item.text.type=='title'||item.text.type=='title-detail'">
+                    <div ng-init="iconStyle=({background: 'url('+ item.text.title.icon + ') no-repeat center'})" ng-style="iconStyle" ng-if="item.isHover!==true"></div>
+                    <div ng-init="iconStyle=({background: 'url('+ item.text.title.hoverIcon + ') no-repeat center'})" ng-style="iconStyle" ng-if="item.isHover==true"></div>
+                    <div>{{item.text.title.text}}</div>
+                </div>
+                <div class="detail" ng-if="item.text.type=='detail'||item.text.type=='title-detail'">
+                    <span>{{item.text.detail}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="slip-item j-slip-item" ng-if="config.row>1" ng-repeat="item in config.list"></div>
+    </div>
+    <!-- <div class="right-btn-area" ng-class="{false: 'unenable-btn'}[config.list.length>config.showColumn&&config.startIndex<config.list.length]">
+        <div class="btn-bg"></div>
+        <div class="btn-area">
+            <i class="fa fa-angle-right fa-3x" ng-click="slipLeftRight('right')"></i>
+        </div>
+    </div> -->
+</div>

@@ -1,0 +1,15 @@
+<!-- <div class="select-box" ng-class="{'down': 'show-list down-list', 'up': 'show-list up-list'}[selectInfo.pos]">
+    <div class="select-focus" ng-click="openSelectList($event)">
+        <div class="select-input">
+            {{getShowText(myData.list)}}
+        </div>
+        <i class="fa fa-lg fa-angle-down"></i>
+    </div>
+    <div class="select-filter" ng-show="selectInfo.filter&&selectInfo.show" ng-click="selectFilter($event)">
+        <input type="text" class="filter" placeholder="在此输入筛选" ng-model="selectInfo.filterValue">
+    </div>
+    <ul class="select-list" ng-show="selectInfo.show">
+        <li value="{{option[selectInfo.listMap.value]}}" ng-class="{true: 'active'}[myModel==option[selectInfo.listMap.value]]" ng-repeat="option in myData.list | filter:selectInfo.filterValue" ng-click="selectOneItem($event, option)">{{option[selectInfo.listMap.key]}}</li>
+    </ul>
+</div> -->
+<div class="show-vertical-on-hover-box" ng-class="{true: 'list-focus'}[myselfInfo.focus]" ng-mouseover="mouseover($event)" ng-transclude></div>

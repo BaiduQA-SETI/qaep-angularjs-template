@@ -1,0 +1,23 @@
+<div class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg {{dlgInfo.className}}" ng-style="dlgInfo.style">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-label="Close">
+                	<span aria-hidden="true">&times;</span>
+            	</button>
+                <h4 class="modal-title">{{dlgInfo.title}}</h4>
+            </div>
+            <div class="modal-body container-fluid" ng-transclude></div>
+            <!-- <div class="prompt-msg" ng-show="!!dlgInfo.promptMsg">{{dlgInfo.promptMsg}}</div> -->
+            <div class="alert alert-danger prompt-msg" role="alert" ng-show="!!dlgInfo.promptMsg" title="{{dlgInfo.promptMsg}}">
+                <!-- <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> -->
+                {{dlgInfo.promptMsg}}
+            </div>
+            <div class="modal-footer" ng-show="!dlgInfo.noAction">
+                <button type="button" class="btn btn-primary" ng-click="ok()">{{dlgInfo.okBtnText || '保存'}}</button>
+                <button type="button" class="btn btn-info" ng-click="next()" ng-show="!!dlgInfo.nextBtnText">{{dlgInfo.nextBtnText}}</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()">取消</button>
+            </div>
+        </div>
+    </div>
+</div>

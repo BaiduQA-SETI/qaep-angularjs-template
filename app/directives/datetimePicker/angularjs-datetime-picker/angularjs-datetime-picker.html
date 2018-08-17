@@ -1,0 +1,31 @@
+<div class="angularjs-datetime-picker">
+    <div class="adp-month">
+        <button type="button" class="adp-prev" ng-click="addMonth(-1)">&laquo;</button>
+        <span title="{{months[mv.month].fullName}}">
+            {{months[mv.month].shortName}}
+        </span>
+        {{mv.year}}
+        <button type="button" class="adp-next" ng-click="addMonth(1)">&raquo;</button>
+    </div>
+    <div class="adp-days" ng-click="setDate($event)">
+        <div class="adp-day-of-week" ng-repeat="dayOfWeek in ::daysOfWeek" title="{{dayOfWeek.fullName}}">{{::dayOfWeek.firstLetter}}
+        </div>
+        <div class="adp-day" ng-repeat="day in mv.leadingDays">
+        {{::day}}
+        </div>
+        <div class="adp-day selectable" ng-repeat="day in mv.days" ng-class="{selected: (day == selectedDay)}">{{::day}}
+        </div>
+        <div class="adp-day" ng-repeat="day in mv.trailingDays">
+        {{::day}}
+        </div>
+    </div>
+    <div class="adp-days" id="adp-time">
+        Time : {{("0"+inputHour).slice(-2)}} : {{("0"+inputMinute).slice(-2)}} : {{("0"+inputSecond).slice(-2)}}<br/>
+        <label>Hour:</label>
+        <input type="range" min="0" max="23" ng-model="inputHour" ng-change="updateNgModel()">
+        <label>Minute:</label>
+        <input type="range" min="0" max="59" ng-model="inputMinute"  ng-change="updateNgModel()">
+        <label>Second:</label>
+        <input type="range" min="0" max="59" ng-model="inputSecond"  ng-change="updateNgModel()">
+    </div>
+</div>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="app">
+    <head>
+        <meta charset="utf8">
+        <title>XXX平台</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <link rel="icon" href="/favicon.png" type="image/x-icon" />
+        <!-- <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" /> -->
+    </head>
+    <body>
+        <div class="wrapper {{getStyleClass()}} big">
+            <div class="header-part">
+                <div ui-view="header" class="header-view">
+                </div>
+            </div>
+            <div class="center-part">
+                <div ui-view="content" class="main-content-part">
+                </div>
+            </div>
+            <div ui-view="footer" class="footer-part"></div>
+        </div>
+        <!-- global loading -->
+        <div id="loading" class="loading" ng-show="showLoading||forceShowLoading" style="display: none;">
+            <div class="loading-bg"></div>
+            <div class="loading-ct">
+                <img src="./img/loading.gif">
+            </div>
+        </div>
+        <!-- 全局弹窗 -->
+        <div ng-show="showGlobalPopup" style="display: none;">
+            <div id="error-message" class="modal fade">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header" ng-show="!noAction">
+                            <button type="button" class="close" ng-click="closePopup()" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" ng-bind="title"></h4>
+                        </div>
+                        <div class="modal-body container-fluid">
+                            {{popupMsg}}
+                            <div ng-if="noAuth">请联系: <a href="mailto:xxx@baidu.com">xxx@baidu.com</a></div>
+                        </div>
+                        <!--    <div class="alert alert-danger prompt-msg" role="alert" ng-show="!!popupMsg" title="{{popupMsg}}">
+                            {{popupMsg}}
+                            </div> -->
+                        <div class="modal-footer" ng-show="!noAction">
+                            <button ng-click="closePopup()" type="button" class="note-btn close-btn" data-dismiss="modal" ng-if="!noCloseBtn">关闭</button>
+                            <button ng-click="onConfirm()" type="button" class="note-btn confirm-btn">确认</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% if (htmlWebpackPlugin.options.window) { %>
+        <script>
+            <% for (var varName in htmlWebpackPlugin.options.window) { %>
+              window['<%=varName%>'] = <%= JSON.stringify(htmlWebpackPlugin.options.window[varName]) %>;
+            <% } %>
+        </script>
+        <% } %>
+        <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+        <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+        <% } %>
+        <% if (htmlWebpackPlugin.options.devServer) { %>
+        <script src="<%= htmlWebpackPlugin.options.devServer%>/webpack-dev-server.js"></script>
+        <% } %>
+        <script>
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?b6ea7d9fca829db27cc454fb88289f34";
+                var s = document.getElementsByTagName("script")[0]; 
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+    </body>
+</html>

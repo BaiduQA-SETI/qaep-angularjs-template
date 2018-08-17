@@ -1,0 +1,60 @@
+@import (reference) '../../style/theme-blue.less';
+
+.show-vertical-on-hover-box {
+    position: relative;
+    box-sizing: border-box;
+    height: 100%;
+    line-height: 100%;
+    &:hover {
+        span {
+            .fa-angle-down {
+                -webkit-transform: rotate(180deg);
+                   -moz-transform: rotate(180deg);
+                    -ms-transform: rotate(180deg);
+                     -o-transform: rotate(180deg);
+                        transform: rotate(180deg);
+            }
+        }
+    }
+    &.list-focus {
+        &:hover {
+            ul {
+                display: block !important;
+            }
+        }
+    }
+    span {
+         position: relative;
+        &:hover {
+            + ul {
+                display: block !important;
+            }
+        }
+        .fa-angle-down {
+            -webkit-transform: rotate(0deg);
+               -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                 -o-transform: rotate(0deg);
+                    transform: rotate(0deg);
+           -webkit-transition: all .5s;
+              -moz-transition: all .5s;
+               -ms-transition: all .5s;
+                -o-transition: all .5s;
+                   transition: all .5s;
+        }
+    }
+    ul {
+        position: absolute;
+        display: none;
+        overflow-y: auto;
+        min-width: 100%;
+        z-index: 2000000;
+        line-height: 30px;
+        max-height: 300px;
+        padding: 2px 5px;
+        margin-top: 3px;
+        opacity: .9;
+        color: @font-color;
+        background-color: @bg-color;
+    }
+}

@@ -1,0 +1,12 @@
+<div class="datetime-box">
+    <input class="cm-input-text datetime" ng-class="{true: 'invalid-datetime'}[datetimePickerInfo.isBegThanEnd||!datetimePickerInfo.isEndThanBeg]" ng-model="dateTime" datetime-picker date-only="{{datetimePickerInfo.dateOnly}}" ng-readonly="datetimePickerInfo.readOnly" date-format="{{datetimePickerInfo.dateTimeFormat}}">
+    <i class="fa fa-fw fa-calendar" ng-click="triggerDateBox($event)"></i>
+    <div class="invalid-note" ng-if="datetimePickerInfo.isBegThanEnd">
+        <div class="note-bg">&nbsp;</div>
+        <div class="note">开始时间不能>=结束时间!</div>
+    </div>
+    <div class="invalid-note" ng-if="!datetimePickerInfo.isEndThanBeg">
+        <div class="note-bg">&nbsp;</div>
+        <div class="note">结束时间不能<=开始时间!</div>
+    </div>
+</div>

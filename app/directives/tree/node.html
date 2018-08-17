@@ -1,0 +1,37 @@
+<li class="node-item" 
+    ng-class="{
+        collapsed: node.isCollapsed,
+        expanded: !node.isCollapsed,
+        'node-leaf': !node[children || 'children'] || !node[children || 'children'].length,
+        selected: node.isSelected,
+        edit: node.isEdit
+    }">
+    <div class="node-info"
+        data-id="{{node[id]}}"
+        draggable="true"
+        ng-dragstart="dragStart(node, nodes, $event)"
+        ng-dragover="dragOver(node, nodes, $event)"
+        ng-drop="drop(node, nodes, $event)">
+        <span class="insert-arrow"></span>
+        <span ng-click="toggle(node)" class="node-switch"></span>
+        <span class="custom-checkbox"
+            ng-click="select(node, nodes, $event)"
+            ng-if="multiple"
+            ng-class="{checked: node.isSelected, 'checked-part': !!isPartChecked(node)}"></span>
+        <i class="{{makeIconClass(node)}}"></i>
+        <input type="text" set-focus
+            ng-if="node.isEdit"
+            ng-model="node.name"
+            ng-blur="finishEdit(node)"
+            ng-keyup="inputKeyup(node, $event)" />
+        <span ng-if="!node.isEdit" ng-click="select(node, nodes, $event)" class="node-name" title="{{node[tooltip] || node[name]}}">{{getNodeText ? getNodeText(node) : node[name]}}</span>
+        <span class="node-actions" ng-if="editable">
+            <i class="fi-page-edit" ng-click="edit(node, nodes, $event)"></i>
+            <i class="fi-page-delete" ng-click="del(node, nodes, $event)"></i>
+        </span>
+    </div>
+   
+    <ul class="node-children" ng-class="{'animation-show': animation}" ng-show="!node.isCollapsed" data-pid="{{node[id]}}">
+        <tree-node ng-repeat="node in node[children]"></tree-node>
+    </ul>
+</li>

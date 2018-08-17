@@ -1,0 +1,690 @@
+@import "../../style/theme-blue.less";
+.wrapper {
+    position: relative;
+    box-sizing: border-box;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: auto;
+    min-height: 100%;
+    min-width: 1264px;
+    background-size: 100% 100%;
+    // background-color: @bg-color;
+    &.index-wrapper {
+        .header-part {
+            .header {
+                > div {
+                    width: 1264px;
+                    margin: 0 auto;
+                }
+            }
+            .header-ct {
+                .user-help {
+                    .for-git {
+                        span {
+                            background: url("../../img/git_white.png") no-repeat;
+                        }
+                    }
+                }
+            }
+        }
+        .center-part {
+            padding-top: 0;
+        }
+    }
+    &.flex-wrapper {
+        .header-part {
+            .header {
+                > div {
+                    width: 100%;
+                    padding: 0 5%;
+                    // margin: 0 auto;
+                }
+            }
+            .header-ct {
+                .user-help {
+                    .for-git {
+                        span {
+                            background: url("../../img/git_white.png") no-repeat;
+                        }
+                    }
+                }
+            }
+        }
+        .center-part {
+            padding: 60px 0 24px 0;
+        }
+    }
+    &.nofooter-wrapper {
+        > .center-part {
+            padding-bottom: 0 !important;
+        }
+        > .footer-part {
+            // display: none;
+            background-color: rgba(255, 255, 255, 0);
+        }
+    }
+
+    @header-height: 60px;
+    .header-part {
+        position: fixed;
+        box-sizing: border-box;
+        z-index: 1000;
+        width: 100%;
+        height: @header-height;
+        .header-view {
+            position: relative;
+            height: @header-height;
+            .header {
+                box-sizing: border-box;
+                background-color: rgba(37, 24, 46, 0);
+                height: @header-height;
+                .transition;
+                &.header-bg-one {
+                    background-color: rgba(52, 53, 64, .2);
+                    .transition;
+                }
+                &.header-bg-two {
+                    background-color: rgba(52, 53, 64, .4);
+                    .transition;
+                }
+                &.header-bg-three {
+                    background-color: rgba(52, 53, 64, .5);
+                    .transition;
+                }
+                &.header-bg-four {
+                    background-color: rgba(52, 53, 64, .8);
+                    .transition;
+                }
+                &.header-bg-five {
+                    background-color: rgba(52, 53, 64, 1);
+                    .transition;
+                }
+                &.header-bg-other {
+                    background-color: rgba(52, 53, 64, 1);
+                    // border-bottom: solid 0 #FFF;
+                    box-shadow: 0 4px 12px 0 rgba(144, 144, 144, 0.22);
+                    .transition;
+                    .header-ct {
+                        width: 100%;
+                        .logo {
+                            background: url("../../img/rmtc_logo.png") no-repeat;
+                        }
+                        .menu-list {
+                            li {
+                                &:hover {
+                                    a {
+                                        color: @primary-color4;
+                                    }
+                                }
+                                .menu {
+                                    &.active {
+                                        color: @primary-color4;
+                                        border-radius: 5px;
+                                        background-color: #474853;
+                                    }
+                                }
+                                .sub-menu-list-ct {
+                                    background-color: #474853;
+                                    ul {
+                                        .sub-menu-title {
+                                            a {
+                                                color: @font-reverse-color;
+                                            }
+                                        }
+                                        .sub-menu-item {
+                                            a {
+                                                color: @font-reverse-color;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .user-help {
+                            li {
+                                &.user {
+                                    &:hover {
+                                        .pwd {
+                                            background-color: #474853;
+                                        }
+                                    }
+                                    a {
+                                        color: @font-reverse-color;
+                                    }
+                                }
+                                &.split {
+                                    background-color: @font-reverse-color;
+                                }
+                                &.help {
+                                    a {
+                                        color: @font-reverse-color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .header-ct {
+                    display: -webkit-flex;
+                    display: flex;
+                    flex-direction: row;
+                    height: @header-height;
+                    // width: 1040px;
+                    // margin: 0 auto;
+                    .logo {
+                        display: inline-block;
+                        vertical-align: top;
+                        width: 155px;
+                        height: 40px;
+                        margin-top: 8px;
+                        background: url("../../img/rmtc_logo.png") no-repeat;
+                    }
+                    .menu-list {
+                        display: inline-block;
+                        list-style: none;
+                        flex: 1;
+                        padding: 0 0 0 100px;
+                        height: @header-height;
+                        // line-height: @header-height;
+                        > li {
+                            float: left;
+                            text-align: center;
+                            cursor: pointer;
+                            width: 90px;
+                            margin-top: 15px;
+                            &:not([name=index]) {
+                                margin-left: 10px;
+                            }
+                            &:hover {
+                                a {
+                                    color: @primary-color4;
+                                    &.service,
+                                    &.solution,
+                                    &.resource {
+                                        background-color: #474853;
+                                        border-top-left-radius: 5px;
+                                        border-top-right-radius: 5px;
+                                        height: 44px;
+                                    }
+                                }
+                                .sub-menu-list-ct {
+                                    display: block;
+                                }
+                            }
+                            .menu {
+                                display: inline-block;
+                                text-decoration: none;
+                                box-sizing: border-box;
+                                width: 100%;
+                                height: 30px;
+                                line-height: 30px;
+                                // height: 59px;
+                                padding-bottom: 1px;
+                                color: @font-reverse-color;
+                                &.active {
+                                    color: @primary-color4;
+                                    border-radius: 5px;
+                                    background-color: #474853;
+                                    // background-color: rgba(255, 255, 255, .31);
+                                }
+                            }
+                            .sub-menu-list-ct {
+                                display: none;
+                                box-sizing: border-box;
+                                height: 220px;
+                                padding: 20px 8px;
+                                margin-top: -1px;
+                                background-color: #474853;
+                                &.service-menu {
+                                    width: 480px;
+                                    ul {
+                                        display: inline-block;
+                                        list-style: none;
+                                        vertical-align: top;
+                                        width: 140px;
+                                        height: 100%;
+                                        line-height: 14px;
+                                        padding: 0 10px;
+                                        border-left: solid 1px #979797;
+                                        &:first-child {
+                                            border-left: solid 0 #FFF;
+                                        }
+                                        .sub-menu-title {
+                                            text-align: left;
+                                            cursor: default;
+                                            padding: 0 0 10px 0;
+                                            margin: 0 0 7px 0;
+                                            width: 100%;
+                                            a {
+                                                cursor: default;
+                                                text-decoration: none;
+                                                color: @font-reverse-color;
+                                            }
+                                        }
+                                        .sub-menu-item {
+                                            text-align: left;
+                                            margin: 7px 0;
+                                            width: 100%;
+                                            height: 25px;
+                                            line-height: 25px;
+                                            a {
+                                                text-decoration: none;
+                                                color: #D3D3D3;
+                                                &:hover {
+                                                    color: @primary-color4;
+                                                }
+                                                &.aisync {
+                                                    > span {
+                                                        font-size: 12px;
+                                                        color: @primary-color4;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        &:nth-child(2),
+                                        &:nth-child(3) {
+                                            padding: 0 20px;
+                                        }
+                                        &:nth-child(2) {
+                                            width: 170px;
+                                        }
+                                    }
+                                }
+                                &.solution-menu,
+                                &.resource-menu {
+                                    width: 220px;
+                                    height: 120px;
+                                    padding: 15px 8px;
+                                    ul {
+                                        list-style: none;
+                                        vertical-align: top;
+                                        width: 100%;
+                                        padding: 0 10px;
+                                        line-height: 14px;
+                                        margin: 0 0;
+                                        > li {
+                                            text-align: left;
+                                            width: 100%;
+                                            height: 30px;
+                                            line-height: 30px;
+                                            padding: 0 15px;
+                                            > a {
+                                                text-decoration: none;
+                                                text-align: left;
+                                                color: #D3D3D3;
+                                                &:hover {
+                                                    color: @primary-color4;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                &.resource-menu {
+                                    width: 140px;
+                                }
+                            }
+                        }
+                    }
+                    .user-help {
+                        display: inline-block;
+                        list-style: none;
+                        height: @header-height;
+                        > li {
+                            float: left;
+                            height: 30px;
+                            line-height: 30px;
+                            margin-top: 15px;
+                            &.for-git {
+                                display: -webkit-flex;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: flex-start;
+                                padding: 0 0 0 15px;
+                                height: 100%;
+                                span {
+                                    display: inline-block;
+                                    height: 25px;
+                                    width: 25px;
+                                }
+                            }
+                            &.user {
+                                padding: 0 10px 0 0;
+                                a {
+                                    display: inline-block;
+                                    text-decoration: none;
+                                    padding: 0 5px;
+                                    color: @font-reverse-color;
+                                    height: 30px;
+                                    line-height: 30px;
+                                    .fa {
+                                        margin-left: 5px;
+                                    }
+                                }
+                                .pwd {
+                                    position: absolute;
+                                    display: none;
+                                    box-sizing: border-box;
+                                    cursor: default;
+                                    width: 100px;
+                                    // min-width: 100px;
+                                    // margin-top: 10px;
+                                    // margin-left: -90px;
+                                    height: 40px !important;
+                                    line-height: 40px !important;
+                                    background-color: #474853;
+                                    // background-color: @bg-hover-color;
+                                    .pwd-list {
+                                        position: relative;
+                                        display: inline-block;
+                                        list-style: none;
+                                        vertical-align: top;
+                                        width: 100%;
+                                        background-color: #474853;
+                                        padding: 8px 8px;
+                                        > i {
+                                            position: absolute;
+                                            color: #474853;
+                                            margin: -12px 0 0 40px;
+                                        }
+                                        li {
+                                            text-align: center;
+                                            width: 100%;
+                                            a {
+                                                display: block;
+                                                cursor: default;
+                                                color: #D3D3D3;
+                                                height: 25px !important;
+                                                line-height: 25px !important;
+                                                &:hover {
+                                                    color: @primary-color4;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                &:hover {
+                                    > a {
+                                        height: 40px;
+                                        color: @primary-color4;
+                                    }
+                                    .pwd {
+                                        display: block;
+                                    }
+                                }
+                                // &:hover {
+                                //     a {
+                                //         color: @primary-color4;
+                                //         background-color: #474853;
+                                //         border-top-left-radius: 5px;
+                                //         border-top-right-radius: 5px;
+                                //         height: 44px;
+                                //     }
+                                //     .pwd {
+                                //         display: block;
+                                //     }
+                                // }
+                            }
+                            &.split {
+                                display: inline-block;
+                                width: 1px;
+                                height: 12px;
+                                margin-top: 23px;
+                                background-color: @area-bg-color;
+                            }
+                            &.help {
+                                padding: 0 15px 0 15px;
+                                a {
+                                    color: @font-reverse-color;
+                                    &:hover {
+                                        color: @primary-color4;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    @center-padding: 60px 0 65px 0;
+    @center-bg-color: #07112E;
+    .center-part {
+        position: relative;
+        box-sizing: border-box;
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding: @center-padding;
+        .main-content-part {
+            position: relative;
+            box-sizing: border-box;
+            display: -webkit-flex;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    @footer-height: 40px;
+    @footer-bg-color: @bg-color;
+    @footer-font-color: @font-reverse-color;
+    @footer-border-color: #6E6E6E;
+    .footer-part {
+        position: absolute;
+        text-align: center;
+        box-sizing: border-box;
+        width: 100%;
+        bottom: 0;
+        background-color: @footer-bg-color;
+
+        .footer {
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 15px 0;
+            font-size: 12px;
+            height: 115px;
+            background-color: #343540;
+            color: #8A8B9D;
+            span {
+                font-size: 12px;
+            }
+            a {
+                text-decoration: none;
+                color: #8A8B9D;
+                font-size: 12px;
+            }
+
+            & > div {
+                margin: 8px 0 0 0;
+                &:first-child {
+                    // margin-top: 10px;
+                }
+                ul {
+                    display: inline-block;
+                    margin: 0;
+                    padding: 0;
+                    font-size: 0;
+                }
+                li {
+                    position: relative;
+                    display: inline-block;
+                    padding: 0 8px;
+                    font-size: 12px;
+                    &:not(:last-of-type):after {
+                        position: absolute;
+                        content: "";
+                        top: 50%;
+                        right: 0;
+                        transform: translateY(-50%);
+                        height: 1em;
+                        width: 1px;
+                        background-color: #8A8B9D;
+                    }
+                }
+                &:nth-of-type(1) > span {
+                    padding-right: 8px;
+                }
+                &:nth-of-type(3) {
+                    &> span {
+                        display: inline-block;
+                        padding-right: 8px;
+                        &:first-child {
+                            position: relative;
+                            &:after {
+                                position: absolute;
+                                content: "";
+                                top: 50%;
+                                right: 0;
+                                transform: translateY(-50%);
+                                height: 1em;
+                                width: 1px;
+                                background-color: #8A8B9D;
+                            }
+                        }
+                        &:nth-child(2) {
+                            position: relative;
+                            padding-left: 28px;
+                            &:before {
+                                position: absolute;
+                                left: 3px;
+                                top: 0;
+                                height: 1.5em;
+                                width: 1.5em;
+                                content: '';
+                                background: url("../../img/eplogo_rmtc.png") no-repeat;
+                                background-size: 100%;
+                                background-position: 0;
+                            }
+                        }
+                        &:nth-child(3) {
+                            font-weight: 300;
+                        }
+                    }
+                }
+            }
+        }
+        .other-footer {
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 2px 0;
+            font-size: 12px;
+            div {
+                span {
+                    display: inline-block;
+                    padding-right: 8px;
+                    a {
+                        text-decoration: none;
+                        color: @font-color;
+                    }
+                    &:nth-child(3) {
+                        position: relative;
+                        &:after {
+                            position: absolute;
+                            content: "";
+                            top: 50%;
+                            right: 0;
+                            transform: translateY(-50%);
+                            height: 1em;
+                            width: 1px;
+                            background-color: @font-color;
+                        }
+                    }
+                    &:nth-child(4) {
+                        position: relative;
+                        padding-left: 28px;
+                        &:before {
+                            position: absolute;
+                            left: 6px;
+                            top: 0;
+                            height: 1.5em;
+                            width: 1.5em;
+                            content: '';
+                            background: url("../../img/eplogo_rmtc.png") no-repeat;
+                            background-size: 100%;
+                            background-position: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.wrapper {
+    &.big {
+        &.flex-wrapper {
+            .header-part {
+                .header {
+                    > div {
+                        padding: 0 5% !important;
+                    }
+                }
+            }
+            .center-part {
+                .main-content-part {
+                    > div > div {
+                        padding: 0 5% !important;
+                    }
+                }
+            }
+        }
+    }
+    &.small {
+        &.flex-wrapper {
+            .header-part {
+                .header {
+                    > div {
+                        padding: 0 1% !important;
+                    }
+                }
+            }
+            .center-part {
+                .main-content-part {
+                    > div > div {
+                        padding: 0 1% !important;
+                    }
+                }
+            }
+        }
+    }
+}
+.loading {
+    position: fixed;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    z-index: 1060;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    .loading-bg {
+        position: absolute;
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        width: 100%;
+        min-height: 100%;
+        background-color: rgba(0, 0, 0, .5);
+    }
+    .loading-ct {
+        position: absolute;
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1065;
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
